@@ -1,26 +1,28 @@
-function insert(num){
-   var numero = document.getElementById('resultado').innerHTML;
-   document.getElementById('resultado').innerHTML = numero + num
+function insert(num) {
+    var resultado = document.getElementById('resultado');
+    resultado.innerHTML += num;
 }
-//isso é para quando eu clicar no número exibir ele no p
 
-function clean(){
-    document.getElementById('resultado').innerHTML = ""
+function clean() {
+    document.getElementById('resultado').innerHTML = "";
 }
 
 function back() {
-    var resultadoElement = document.getElementById('resultado');
-    var resultado = resultadoElement.innerHTML;
-    
-    // Corrigindo o erro de sintaxe aqui
-    resultadoElement.innerHTML = resultado.substring(0, resultado.length - 1);
+    var resultado = document.getElementById('resultado');
+    resultado.innerHTML = resultado.innerHTML.slice(0, -1);
 }
 
-function calcular(){
-    var resultado = document.getElementById('resultado').innerHTML
-    if(resultado){
-        document.getElementById('resultado').innerHTML = eval(resultado)
-    } else{
-        document.getElementById('resultado')
+function calcular() {
+    var resultado = document.getElementById('resultado').innerHTML;
+
+    
+    resultado = resultado.replace(/÷/g, '/').replace(/×/g, '*');
+    
+    
+    try {
+        var resultadoFinal = eval(resultado);
+        document.getElementById('resultado').innerHTML = resultadoFinal;
+    } catch (error) {
+        document.getElementById('resultado').innerHTML = "Erro";
     }
 }

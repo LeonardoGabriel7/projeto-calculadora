@@ -33,6 +33,11 @@ button{
     color: #fff;
 }
 
+.nome{
+    padding-top: 50px;
+    font-size: 20px;
+}
+
 button.maior1{
 height: 106px;
 }
@@ -56,3 +61,10 @@ p#resultado{
 
 }
 
+button.C{
+    color: red;
+}
+
+button.voltar{
+    color: red;
+}
